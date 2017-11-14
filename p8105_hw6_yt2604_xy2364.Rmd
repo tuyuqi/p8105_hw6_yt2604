@@ -1,8 +1,12 @@
 ---
-title: "p8105_hw6_yt2604_xy2364"
+title: "HW6_P1"
 author: "Yuqi Tu"
 date: "November 14, 2017"
-output: html_document
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+
 ---
 
 
@@ -13,16 +17,15 @@ library(rvest)
 library(httr)
 library(haven)
 library(janitor)
-library(ggthemes)
-library(ggplot2)
 library(rnoaa)
 library(stringr)
 library(forcats)
 library(viridis)
 library(plotly)
+library(flexdashboard)
 ```
 
-# Problem 1
+
 
 
 ```{r read and load data, message= FALSE, warning= FALSE}
@@ -30,8 +33,56 @@ instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
     clean_names()
 ```
 
-```{r }
+
+
+```{r department pie chart analysis}
+most_department_items_ordered= summarize(group_by(instacart, department),n=n())
  
+least_department_items_ordered= summarize(group_by(instacart, department),n=n()) %>% 
+  filter(n == min(n)) %>% 
+  select(department)
+as.character(least_department_items_ordered)
+```
+
+
+```{r analysis}
+
+```
+
+
+```{r analysis}
+
+```
+
+
+
+
+
+
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r pie chart plot }
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r plot }
+
+```
+
+### Chart C
+
+```{r plot}
+
 ```
 
 
