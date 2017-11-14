@@ -6,5 +6,34 @@ output: html_document
 ---
 
 
+```{r library, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidytext)
+library(rvest)
+library(httr)
+library(haven)
+library(janitor)
+library(ggthemes)
+library(ggplot2)
+library(rnoaa)
+library(stringr)
+library(forcats)
+library(viridis)
+library(plotly)
+```
+
+# Problem 1
+
+
+```{r read and load data, message= FALSE, warning= FALSE}
+NY_NOAA_DATA= read_csv("../data/nynoaadat.zip")%>% 
+  clean_names() %>% 
+  mutate(tmax = as.numeric(tmax), tmin = as.numeric(tmin))
+```
+
+```{r }
+ 
+```
+
 
 
