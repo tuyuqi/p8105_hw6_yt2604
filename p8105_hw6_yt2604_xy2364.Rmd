@@ -26,9 +26,8 @@ library(plotly)
 
 
 ```{r read and load data, message= FALSE, warning= FALSE}
-NY_NOAA_DATA= read_csv("../data/nynoaadat.zip")%>% 
-  clean_names() %>% 
-  mutate(tmax = as.numeric(tmax), tmin = as.numeric(tmin))
+instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
+    clean_names()
 ```
 
 ```{r }
