@@ -27,7 +27,6 @@ library(flexdashboard)
 
 
 
-
 ```{r read and load data, message= FALSE, warning= FALSE}
 instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
     clean_names()
@@ -36,21 +35,19 @@ instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
 
 
 ```{r department pie chart analysis}
-most_department_items_ordered= summarize(group_by(instacart, department),n=n())
- 
-least_department_items_ordered= summarize(group_by(instacart, department),n=n()) %>% 
-  filter(n == min(n)) %>% 
-  select(department)
-as.character(least_department_items_ordered)
-```
-
-
-```{r analysis}
+department_items_ordered = summarize(group_by(instacart, department),n=n()) %>% 
+  arrange(desc(n)) %>% 
+  rename(number_of_item_ordered = n)
 
 ```
 
 
-```{r analysis}
+```{r analysis b}
+
+```
+
+
+```{r analysis c}
 
 ```
 
@@ -66,8 +63,14 @@ Column {data-width=650}
 
 ### Chart A
 
-```{r pie chart plot }
-
+```{r department pie chart plot }
+donut_chart = department_items_ordered %>% 
+  plot_ly(labels = ~department, values = ~number_of_item_ordered) %>% 
+  add_pie(hole = 0.4) %>% 
+  layout(title = "The Number of Items Ordered within Each Department", showlegend = F,
+         xaxis = list(showgrid = FALSE, zeorline = FALSE, showticklabels = FALSE), 
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+donut_chart
 ```
 
 Column {data-width=350}
@@ -75,13 +78,13 @@ Column {data-width=350}
 
 ### Chart B
 
-```{r plot }
+```{r plot B}
 
 ```
 
 ### Chart C
 
-```{r plot}
+```{r plot C}
 
 ```
 
