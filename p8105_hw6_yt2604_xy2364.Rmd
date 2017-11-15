@@ -4,8 +4,7 @@ author: "Yuqi Tu and Xin Yin"
 date: "November 14, 2017"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows
 editor_options: 
   chunk_output_type: console
 ---
@@ -69,7 +68,7 @@ aisle_tidy =
 
 
 
-Column {data-width=500}
+Row
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -89,7 +88,7 @@ donut_chart
 
 ```
 
-Column {data-width=350}
+Row {.tabset .tabset-fade}
 -----------------------------------------------------------------------
 
 ### Chart B
@@ -110,8 +109,6 @@ household_plot
 ```
 
 
-Column {data-width=350}
------------------------------------------------------------------------
 ### Chart C
 
 ```{r line graph about}
@@ -119,8 +116,10 @@ aisle_plot =
   aisle_tidy %>%
   plot_ly(x = ~order_hour_of_day, y = ~n, 
           split = ~aisle, type = 'scatter', mode = 'lines') %>%
-  layout(xaxis = list(title = "Order hour of day", zeroline = F),
+  layout(title = "The Association of Order Hour and Frequency for Different Aisles",
+         xaxis = list(title = "Order hour of day", zeroline = F),
          yaxis = list(title = "Frequency", zeroline = F))
+aisle_plot
 # This line graph shows the order hour of the day on which the order was placed, the number of times an item was ordered from a certain aisle at that particular hour and also the pattern of purchase time of different aisles. For all the aisles, they have the similar purchase pattern associated with time, which people ordered more during daytime. The top 3 aisles from which people ordered the most are fresh vegetables, fresh fruits, packaged vegetables. 
 ```
 
