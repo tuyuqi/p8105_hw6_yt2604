@@ -27,7 +27,6 @@ library(flexdashboard)
 
 
 
-
 ```{r read and load data, message= FALSE, warning= FALSE}
 instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
     clean_names()
@@ -35,14 +34,14 @@ instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
 
 
 
-```{r department pie chart analysis}
-most_department_items_ordered= summarize(group_by(instacart, department),n=n())
- 
-least_department_items_ordered= summarize(group_by(instacart, department),n=n()) %>% 
-  filter(n == min(n)) %>% 
-  select(department)
-as.character(least_department_items_ordered)
+```{r department donut chart analysis}
+department_items_ordered = summarize(group_by(instacart, department),n=n()) %>% 
+  arrange(desc(n)) %>% 
+  rename(number_of_item_ordered = n)
+
+
 ```
+
 
 
 ```{r data analysis order hour for items from the household department}
@@ -53,7 +52,7 @@ household =
 ```
 
 
-```{r analysis}
+```{r analysis c}
 
 ```
 
@@ -64,12 +63,23 @@ household =
 
 
 
-Column {data-width=650}
+Column {data-width=500}
 -----------------------------------------------------------------------
 
 ### Chart A
 
-```{r pie chart plot }
+```{r department donut chart plot }
+donut_chart = department_items_ordered %>% 
+  mutate(text_label = str_c("Number of Items Ordered:", number_of_item_ordered)) %>%
+  plot_ly(labels = ~department, values = ~number_of_item_ordered) %>% 
+  add_pie(hole = 0.4) %>% 
+  layout(title = "The Number of Items Ordered within Each Department", showlegend = T,
+         xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE), 
+         yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+donut_chart
+
+# In New York City, online grocery service is popular for people to shop online from local stores. Among 21 departments of food in grocery shops, produce (29.5%), dairy eggs(15.7%), snacks(8.58%), beverages(8.24%) and forzen (7.25%) departments have much more ordered items than other department, while bulk (0.13%), pets(0.32%), and alcohol(0.40%) department have much fewer ordered items. 
+
 
 ```
 
@@ -93,10 +103,19 @@ household_plot
 ## We can see from the plot that every day before 9am, there are not many order placed from the household department but it's increasing. At around 9am, orders placed reach the maximum from the household department and then decreases for the rest of the day. 
 ```
 
+```{r plot B}
+
+
+```
+
 
 ### Chart C
 
 ```{r scatter plot}
+
+```
+
+```{r plot C}
 
 ```
 
