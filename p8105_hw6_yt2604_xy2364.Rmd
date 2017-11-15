@@ -58,11 +58,6 @@ household =
 
 
 
-
-
-
-
-
 Column {data-width=500}
 -----------------------------------------------------------------------
 
@@ -103,10 +98,6 @@ household_plot
 ## We can see from the plot that every day before 9am, there are not many order placed from the household department but it's increasing. At around 9am, orders placed reach the maximum from the household department and then decreases for the rest of the day. 
 ```
 
-```{r plot B}
-
-
-```
 
 
 ### Chart C
@@ -115,9 +106,6 @@ household_plot
 
 ```
 
-```{r plot C}
-
-```
 
 
 
