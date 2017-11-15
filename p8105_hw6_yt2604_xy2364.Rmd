@@ -1,6 +1,6 @@
 ---
 title: "HW6_P1"
-author: "Yuqi Tu"
+author: "Yuqi Tu and Xin Yin"
 date: "November 14, 2017"
 output: 
   flexdashboard::flex_dashboard:
