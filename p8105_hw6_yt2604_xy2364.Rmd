@@ -6,7 +6,8 @@ output:
   flexdashboard::flex_dashboard:
     orientation: columns
     vertical_layout: fill
-
+editor_options: 
+  chunk_output_type: console
 ---
 
 
@@ -53,7 +54,12 @@ household =
 
 
 ```{r analysis c}
-
+aisle_tidy =
+  instacart %>%
+  select(aisle, order_hour_of_day) %>%
+  group_by(aisle, order_hour_of_day) %>%
+  summarize(n = n()) %>%
+  ungroup()
 ```
 
 
@@ -103,20 +109,19 @@ household_plot
 ## We can see from the plot that every day before 9am, there are not many order placed from the household department but it's increasing. At around 9am, orders placed reach the maximum from the household department and then decreases for the rest of the day. 
 ```
 
-```{r plot B}
 
-
-```
-
-
+Column {data-width=350}
+-----------------------------------------------------------------------
 ### Chart C
 
-```{r scatter plot}
-
-```
-
-```{r plot C}
-
+```{r line graph about}
+aisle_plot =
+  aisle_tidy %>%
+  plot_ly(x = ~order_hour_of_day, y = ~n, 
+          split = ~aisle, type = 'scatter', mode = 'lines') %>%
+  layout(xaxis = list(title = "Order hour of day", zeroline = F),
+         yaxis = list(title = "Frequency", zeroline = F))
+# This line graph shows the order hour of the day on which the order was placed, the number of times an item was ordered from a certain aisle at that particular hour and also the pattern of purchase time of different aisles. For all the aisles, they have the similar purchase pattern associated with time, which people ordered more during daytime. The top 3 aisles from which people ordered the most are fresh vegetables, fresh fruits, packaged vegetables. 
 ```
 
 
