@@ -1,5 +1,5 @@
 ---
-title: "Instacart Flexdashboard"
+title: "p8105_hw6_yt2604_xy2364"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
