@@ -1,7 +1,5 @@
 ---
-title: "HW6_P1"
-author: "Yuqi Tu and Xin Yin"
-date: "November 14, 2017"
+title: "Instacart Flexdashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
