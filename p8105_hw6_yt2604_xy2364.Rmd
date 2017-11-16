@@ -1,5 +1,5 @@
 ---
-title: "Instacart Flexdashboard"
+title: "p8105_hw6_yt2604_xy2364"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
@@ -66,7 +66,9 @@ aisle_tidy =
 
 
 
+
 Row
+
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -107,6 +109,8 @@ household_plot
 ```
 
 
+
+
 ### Chart C
 
 ```{r line graph about}
@@ -120,6 +124,7 @@ aisle_plot =
 aisle_plot
 # This line graph shows the order hour of the day on which the order was placed, the number of times an item was ordered from a certain aisle at that particular hour and also the pattern of purchase time of different aisles. For all the aisles, they have the similar purchase pattern associated with time, which people ordered more during daytime. The top 3 aisles from which people ordered the most are fresh vegetables, fresh fruits, packaged vegetables. 
 ```
+
 
 
 
