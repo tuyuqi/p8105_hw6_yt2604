@@ -1,10 +1,8 @@
 ---
-title: "p8105_hw6_yt2604_xy2364"
+title: "Instacart Flexdashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: rows
-editor_options: 
-  chunk_output_type: console
 ---
 
 
@@ -23,14 +21,10 @@ library(plotly)
 library(flexdashboard)
 ```
 
-
-
 ```{r read and load data, message= FALSE, warning= FALSE}
 instacart = read_csv("./data_hw6/instacart_train_data.csv.zip") %>%
     clean_names()
 ```
-
-
 
 ```{r department donut chart analysis}
 department_items_ordered = summarize(group_by(instacart, department),n=n()) %>% 
@@ -40,15 +34,12 @@ department_items_ordered = summarize(group_by(instacart, department),n=n()) %>%
 
 ```
 
-
-
 ```{r data analysis order hour for items from the household department}
 household = 
   filter(instacart,department == "household") %>%
   select(department, order_hour_of_day) %>%
   arrange(order_hour_of_day)
 ```
-
 
 ```{r analysis c}
 aisle_tidy =
@@ -60,15 +51,7 @@ aisle_tidy =
 ```
 
 
-
-
-
-
-
-
-
 Row
-
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -107,9 +90,6 @@ household_plot =
 household_plot
 ## We can see from the plot that every day before 9am, there are not many order placed from the household department but it's increasing. At around 9am, orders placed reach the maximum from the household department and then decreases for the rest of the day. 
 ```
-
-
-
 
 ### Chart C
 
